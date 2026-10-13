@@ -1,0 +1,22 @@
+name: First Workflow
+
+# リポジトリのmainブランチにプッシュ（コードが追加・更新）されたときに実行する
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  say-hello:
+    # 実行するマシンの環境（Ubuntuの最新版）
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリのコードをチェックアウト（取得）する
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 挨拶メッセージを表示するだけのシンプルな処理
+      - name: Print a message
+        run: |
+          echo "こんにちは！GitHub Actionsへようこそ！"
+          echo "自動化の第一歩が成功しました。"
